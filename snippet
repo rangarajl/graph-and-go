@@ -1,0 +1,3 @@
+MATCH (t:Team {name: "Chicago Cubs"})-[:COMPETED_IN]->(g:Game {name: "2016 World Series"}),
+      (p:Player {name: "Corey Kluber"})-[:PLAYED_IN]->(g)
+RETURN t.name, g.name, p.name, p.role, "High" as performanceRating
