@@ -1,3 +1,19 @@
+// This query illustrates how the Cubs faced Corey Kluber, a strong defensive pitcher with high performance ratings, during the World Series.
+
 MATCH (t:Team {name: "Chicago Cubs"})-[:COMPETED_IN]->(g:Game {name: "2016 World Series"}),
       (p:Player {name: "Corey Kluber"})-[:PLAYED_IN]->(g)
 RETURN t.name, g.name, p.name, p.role, "High" as performanceRating
+
+// This query could be used to analyze Ken Griffey Jr.'s performance in his usual position and suggest potential benefits of a positional change.
+
+MATCH (p:Player {name: "Ken Griffey Jr"})-[:PLAYED_IN]->(g)
+RETURN p.name, g.name, "center_field" as initialPosition, "right_field" as suggestedPosition, "High" as initialPerformanceRating
+
+// This query retrieves playoff games where Alex Rodriguez played and shows his low performance rating, indicating struggle in high-pressure situations.
+
+MATCH (p:Player {name: "Alex Rodriguez"})-[:PLAYED_IN]->(g:Game {type: "Playoff"})
+RETURN p.name, g.name, p.team, "Low" as performanceRating
+
+
+
+
