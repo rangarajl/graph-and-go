@@ -1,0 +1,20 @@
+// Create Teams
+CREATE (cubs:Team {name: "Chicago Cubs"})
+CREATE (indians:Team {name: "Cleveland Indians"})
+CREATE (yankees:Team {name: "New York Yankees"})
+
+// Create Players
+CREATE (aRod:Player {name: "Alex Rodriguez", team: "Yankees"})
+CREATE (kluber:Player {name: "Corey Kluber", team: "Indians"})
+CREATE (griffey:Player {name: "Ken Griffey Jr", team: "Free Agent"})
+
+// Create Games
+CREATE (worldSeries2016:Game {name: "2016 World Series", type: "Playoff"})
+CREATE (playoffGame:Game {name: "Playoff Game", type: "Playoff"})
+
+// Create Relationships
+CREATE (aRod)-[:PLAYED_IN {role: "batter", performanceRating: "Low"}]->(playoffGame)
+CREATE (kluber)-[:PLAYED_IN {role: "pitcher", performanceRating: "High"}]->(worldSeries2016)
+CREATE (griffey)-[:PLAYED_IN {role: "center_field", performanceRating: "High"}]->(playoffGame)
+CREATE (cubs)-[:COMPETED_IN]->(worldSeries2016)
+CREATE (indians)-[:COMPETED_IN]->(worldSeries2016)
